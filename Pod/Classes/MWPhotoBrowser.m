@@ -143,8 +143,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }
     if (!_enableGrid) _startOnGrid = NO;
 	
+    // customize
+    UIColor *contentBackgroundColor = (self.contentBackgroundColor) ? self.contentBackgroundColor : [UIColor blackColor];
+    
 	// View
-	self.view.backgroundColor = [UIColor blackColor];
+	self.view.backgroundColor = contentBackgroundColor;
     self.view.clipsToBounds = YES;
 	
 	// Setup paging scrolling view
@@ -155,7 +158,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	_pagingScrollView.delegate = self;
 	_pagingScrollView.showsHorizontalScrollIndicator = NO;
 	_pagingScrollView.showsVerticalScrollIndicator = NO;
-	_pagingScrollView.backgroundColor = [UIColor blackColor];
+	_pagingScrollView.backgroundColor = contentBackgroundColor;
     _pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
 	[self.view addSubview:_pagingScrollView];
 	
@@ -440,15 +443,28 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 #pragma mark - Nav Bar Appearance
 
 - (void)setNavBarAppearance:(BOOL)animated {
+    
+    UIColor *navigationBarColor = self.navigationBarColor;
+    UIView *navigationBarTitleView = self.navigationBarTitleView;
+    
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = [UIColor whiteColor];
-    navBar.barTintColor = nil;
-    navBar.shadowImage = nil;
+    if(!navigationBarColor) {
+        navBar.barTintColor = nil;
+        navBar.shadowImage = nil;
+        navBar.barStyle = UIBarStyleBlackTranslucent;
+    }
+    else
+    {
+        navBar.backgroundColor = navigationBarColor;
+    }
     navBar.translucent = YES;
-    navBar.barStyle = UIBarStyleBlackTranslucent;
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
+    
+    if(navigationBarTitleView)
+        self.navigationItem.titleView = navigationBarTitleView;
 }
 
 - (void)storePreviousNavBarAppearance {
@@ -806,7 +822,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             // Add new page
 			MWZoomingScrollView *page = [self dequeueRecycledPage];
 			if (!page) {
-				page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
+                UIColor *contentBackgroundColor = (self.contentBackgroundColor) ? self.contentBackgroundColor : [UIColor blackColor];
+                page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self
+                                                         backgroundColor:contentBackgroundColor];
 			}
 			[_visiblePages addObject:page];
 			[self configurePage:page forIndex:index];
