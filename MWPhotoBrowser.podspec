@@ -8,10 +8,10 @@ Pod::Spec.new do |s|
   s.author = { 'Mark Prutskiy' => 'makroo@yandex.ru' }
   s.source = {
     :git => 'https://github.com/nekromarko/MWPhotoBrowser-HealthJoy.git',
-    :tag => '1.0.0'
+    :tag => 's.version.to_s'
   }
   s.platform = :ios, '7.0'
-  s.source_files = 'MWPhotoBrowser/Pod/Classes/**/*'
+  s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'MWPhotoBrowser' => ['Pod/Assets/*.png']
   }
