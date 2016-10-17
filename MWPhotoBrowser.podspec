@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name = 'MWPhotoBrowser'
+  s.name = 'MWPhotoBrowser-HealthJoy'
   s.version = '2.1.2'
   s.license = 'MIT'
   s.summary = 'Customize navigation bar of MWPhotoBrowser for HealthJoy app'
