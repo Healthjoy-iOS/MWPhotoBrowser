@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     :tag => '1.0.0'
   }
   s.platform = :ios, '7.0'
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'MWPhotoBrowser/Pod/Classes/**/*'
   s.resource_bundles = {
     'MWPhotoBrowser' => ['Pod/Assets/*.png']
   }
