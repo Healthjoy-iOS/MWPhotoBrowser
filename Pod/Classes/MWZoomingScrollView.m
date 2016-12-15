@@ -53,6 +53,7 @@
 		
 		// Loading indicator
 		_loadingIndicator = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
+        _loadingIndicator.progressTintColor = _photoBrowser.loadingIndicatorProgressTintColor;
         _loadingIndicator.userInteractionEnabled = NO;
         _loadingIndicator.thicknessRatio = 0.1;
         _loadingIndicator.roundedCorners = NO;
