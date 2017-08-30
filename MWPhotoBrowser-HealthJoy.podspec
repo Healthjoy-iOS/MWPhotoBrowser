@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name = 'MWPhotoBrowser-HealthJoy'
-  s.version = '2.1.6'
+  s.version = '2.1.7'
   s.license = 'MIT'
   s.summary = 'Customize navigation bar of MWPhotoBrowser for HealthJoy app'
-  s.homepage = 'https://github.com/nekromarko/MWPhotoBrowser-HealthJoy.git'
+  s.homepage = 'https://github.com/Healthjoy-iOS/MWPhotoBrowser.git'
   s.author = { 'Mark Prutskiy' => 'makroo@yandex.ru' }
   s.source = {
-    :git => 'https://github.com/nekromarko/MWPhotoBrowser-HealthJoy.git',
-    :tag => '2.1.6'
+    :git => 'https://github.com/Healthjoy-iOS/MWPhotoBrowser.git',
+    :tag => '2.1.7'
   }
   s.platform = :ios, '7.0'
   s.source_files = 'Pod/Classes/**/*'
